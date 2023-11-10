@@ -2,8 +2,6 @@ import os
 import shutil
 import settings
 
-from library.peer_error import PeerError
-
 
 class File:
 	@staticmethod
@@ -22,7 +20,7 @@ class File:
 	def rm(path):
 		path = File.path(path)
 		if not os.path.exists(path):
-			raise PeerError(f'Entity does not exist')
+			raise Exception(f'Entity does not exist')
 		return shutil.rmtree(path)
 
 	@staticmethod
@@ -37,7 +35,7 @@ class File:
 	@staticmethod
 	def mkfile(path, content=''):
 		if File.exists(path):
-			raise PeerError(f'File "{path}" already exists')
+			raise Exception(f'File "{path}" already exists')
 		with open(File.path(path), 'w') as f:
 			f.write(content)
 
@@ -49,7 +47,7 @@ class File:
 	@staticmethod
 	def read(path):
 		if not File.exists(path):
-			raise PeerError(f'File "{path}" does not exists')
+			raise Exception(f'File "{path}" does not exists')
 		with open(File.path(path), 'r') as f:
 			return f.read()
 
