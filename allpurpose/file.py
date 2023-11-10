@@ -1,14 +1,15 @@
 import os
 import shutil
-import settings
+
+from allpurpose import BASE_DIR
 
 
 class File:
 	@staticmethod
 	def path(*args):
 		path = os.path.join(*args)
-		path = path.replace(settings.BASE_DIR, '', 1).lstrip('/')
-		path = os.path.join(settings.BASE_DIR, path)
+		path = path.replace(BASE_DIR, '', 1).lstrip('/')
+		path = os.path.join(BASE_DIR, path)
 		return path
 
 	@staticmethod
