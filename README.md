@@ -1,2 +1,2 @@
-# allpurpose
-Collection of tools that are always needed at hand
+# gptfy
+Establishes continuous two–way API between Open AI GPT models and your application
